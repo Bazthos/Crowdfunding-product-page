@@ -1,0 +1,320 @@
+@media screen and (min-width: 992px){
+    body{
+        background-image: url('images/image-hero-desktop.jpg'), linear-gradient(whitesmoke, whitesmoke);
+        padding: 2rem 5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+    }
+
+    body > header{
+        background-image: linear-gradient(hsla(0, 0%, 0%, 0.6) 0%,hsla(0, 0%, 0%, 0.1) 80%, hsla(0,0%,0%,0) 100%);
+        padding: 3rem 10.5rem;
+    }
+
+    .burger{
+        display: none;
+    }
+
+    body > header > nav{
+        margin: 0;
+        display: block;
+        border-radius: 0rem;
+    }
+    
+    body > header > nav > ul{
+        display: flex;
+        list-style: none;
+        cursor: pointer;
+    }
+    
+    body > header > nav a{
+        color: white;
+        font-weight: 400;
+        font-size: 0.8rem;
+        cursor: pointer;
+    }
+    
+    body > header > nav li{
+        padding: 0rem 1rem;
+        border: none;
+    }
+    
+    body > header > nav > ul > li:last-child{
+        padding-right: 0;
+    }
+    
+    /*Main*/
+    body > main{
+        width: 45.5rem;
+        padding: 17.3rem 0 6rem;
+    }
+    
+    /*Introduction*/
+    .main_page .title{
+        padding: 0rem 3rem 3rem;
+    }
+    
+    .title > img{
+        margin-top: -1.8rem;
+        margin-bottom: 1.6rem;
+    }
+    
+    .title > h2{
+        font-size: 1.75rem;
+    }
+    
+    .title > p{
+        font-size: 1rem;
+        font-weight: 400;
+        padding-bottom: 2.2rem;
+    }
+
+    .title > .bookmark > p{
+        font-weight: 400;
+        padding: 1.1rem 2.6rem;
+    }
+    
+    .title > .bookmark > .desk{
+        display: block;
+        background-color: hsla(0, 0%, 48%, 0.1);
+        color:hsla(0, 0%, 0%, 1);
+        padding-right: 1.5rem;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    .bookmark > svg{
+        position: relative;
+        margin-right: -17.5rem;
+        cursor: pointer;
+    }
+    
+    /*Raised*/
+    .advancement{
+        display: grid;
+        grid-template-columns: 0.8fr 1fr 1fr;
+        grid-template-rows: auto auto;
+        text-align: left;
+        padding: 1.5rem 3rem 2rem;
+    }
+
+    .advancement > div:nth-of-type(1){
+        padding-right: 1.5rem;
+    }
+
+    .advancement > div:nth-of-type(3){
+        padding-left: 3rem;
+    }
+    
+    .advancement > .data > p{ 
+        font-size: 0.95Rem;
+        font-weight: 400;
+    }
+    
+    .advancement > div:nth-of-type(2){
+        border-top : none;
+        border-bottom : none;
+        border-left: 0.01rem solid hsla(0, 0%, 48%, 0.3);
+        border-right: 0.01rem solid hsla(0, 0%, 48%, 0.3);
+        padding: 0 0rem 0rem 3rem;
+    }
+    
+    .advancement > .containeur{
+        grid-column: 1/4;
+    }
+    
+    /*Modal part*/
+    .modal_main{
+        padding: 2.5rem 3rem 1rem;
+    }
+    
+    .modal_main > h4{
+        font-size: 1.25rem;
+        padding-bottom: 2.2rem;
+    }
+    
+    .modal_main  p{
+        font-size: 1rem;
+        line-height: 1.9rem;
+        font-weight: 400;
+        padding-bottom: 2.8rem;
+    }
+    
+    .choice{
+        margin-bottom: 2rem;
+        padding: 2rem 2rem 1.5rem 2rem;
+
+        display: grid;
+        grid-template-columns: auto 2fr 1fr;
+        grid-template-rows: auto auto auto;
+    }
+    
+    .modal_main > .choice > h3{
+        font-size: 1.15rem;
+        padding-bottom: 0rem;
+    }
+    
+    .modal_main > .choice > .minimum{
+        font-size: 0.95rem;
+        text-align: right;
+        padding-bottom: 1rem;
+
+        grid-column: 3/4;
+    }
+
+    .modal_main > .choice > p{
+        grid-column: 1/4;
+        padding-bottom: 1.5rem;
+    }
+    
+    .modal_main > .choice > div{
+        padding-bottom: 0rem;
+    }
+    
+    .modal_main > .choice > div > p{
+        font-size: 1rem;
+    }
+    
+    .modal_main > .choice > div > h4{
+        font-size: 1.95rem;
+    }
+    
+    .modal_main > .choice > .select{
+        font-size: 0.85rem;
+        text-align: center;
+        padding: 0.6rem 1.7rem;
+        width: 9.7rem;
+        cursor: pointer;
+        grid-column: 3/4;
+    }
+    
+    .modal_main > .choice > .out{
+        font-size: 0.85rem;
+        text-align: center;
+        padding: 0.6rem 1.9rem;
+        width: 9.7rem;
+
+        grid-column: 3/4;
+    }
+    
+    /*Modal choice first page*/
+    .modal{
+        width: 45.5rem;
+    
+        top: 15vh;
+    
+        background-color: whitesmoke;
+        padding: 2.5rem 3rem;
+    }
+    
+    .modal > .start > h4{
+        font-size: 1.5rem;
+    }
+    
+    .modal > p{
+        font-size: 1rem;
+        font-weight: 400;
+        padding-bottom: 2rem;
+    }
+    
+    .modal > .choice{
+        display: grid;
+        grid-template-columns: 2.5rem auto 4fr auto;
+        grid-template-rows: auto auto;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 2rem 1.4rem 0.5rem;
+    }
+
+    .modal > div:last-of-type{
+        cursor: not-allowed;
+    }
+    
+    .modal > .choice > input[type="radio"] + label{
+        grid-row: 1/2;
+        grid-column: 1/2;
+    }
+    
+    .modal > .choice > h3{
+        font-size: 1rem;
+        color: black;
+        font-weight: 700;
+    }
+    
+    .modal > .choice > .minimum{
+        padding-left: 1rem;
+        padding-top: 0rem;
+        color: hsl(176, 50%, 47%);
+    }
+    
+    .modal > .choice > .prez{
+        grid-row: 2/3;
+        grid-column: 2/5;
+        padding: 1rem 0 1.5rem;
+        font-size: 0.95rem;
+    }
+    
+    .modal > .choice > .left{
+        grid-row: 1/2;
+        grid-column: 4/5;
+        text-align: right;
+        padding-bottom: 0;
+    }
+    
+    /*Selected section*/
+    .modal > .choice > div{
+        grid-column: 1/5;
+        padding: 1.5rem 1.5rem 1rem;
+        text-align: left;
+        display: flex;
+        align-items: center;
+    }
+    
+    .modal > .choice > div > p{
+        padding-bottom: 0rem;
+        padding-right: 15rem;
+    }
+    
+    .modal > .choice > div > label{
+        transform: translate(23rem, -0rem);
+    }
+    
+    /*Thanks you section*/
+    .completed{
+        z-index: 10000;
+        width: 33rem;
+    
+        top: 33vh;
+        padding: 3rem 2.5rem 2.5rem;
+    }
+    
+    .completed > img{
+        padding-bottom: 2.5rem;
+        width: 5.5Rem;
+    }
+    
+    .completed > h4{
+        font-size: 1.5rem;
+        padding-bottom: 1rem;
+    }
+    
+    .completed > p{
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.8rem;
+    }
+    
+    .completed > .agreement{
+        font-weight: 400;
+        padding: 0.6rem 2.1rem;
+    }
+    
+    .completed > .agreement:hover{
+        transition: 0.2s linear;
+        transform: scale(0.97);
+        font-weight: 500;
+    }
+    
+}

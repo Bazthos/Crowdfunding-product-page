@@ -1,0 +1,646 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Start styling the attribution */
+.attribution { 
+    position: fixed;
+    bottom: 0rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.7rem; 
+    line-height: 1.6; 
+    text-align: center; 
+    color:hsl(220, 15%, 55%);
+    width: 100%;
+}
+.attribution a { 
+    color: var(--Soft-blue);
+}
+.attribution a:hover{
+    color: var(--Cyan);
+    transition: color .3s;
+}
+
+/* Screen reader class to hide the content visually */
+.sr-only {
+    position: absolute !important;
+    margin: -1px !important;
+    -webkit-clip-path: inset(50%) !important;
+            clip-path: inset(50%) !important;
+    border: 0 !important;
+    padding: 0 !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+}
+
+/*General and page initial setup*/
+html{
+    font-size: 100%;
+    font-family: 'Commissioner', sans-serif;
+    scroll-behavior: smooth;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+body{
+    width: 100vw;
+    background-image: url('images/image-hero-mobile.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+body > .none{
+    display: none;
+}
+
+body > main > .none{
+    display: none;
+}
+
+body > main > .modal > .choice > .none{
+    display: none;
+}
+
+#cache{
+    width: inherit;
+    z-index: 100;
+    height: 100vh;
+    position: fixed;
+    top:0;
+    background-color: hsla(0, 0%, 0%, 0.5);
+}
+
+body > main > .modal >.selected{
+    border: 0.15rem solid hsl(176, 50%, 47%);
+    padding-top: 1.3rem;
+}
+
+a:hover{
+    transition: 0.2s linear;
+    color: hsl(176, 50%, 47%);
+}
+
+.burger{
+    background-image: url('images/icon-hamburger.svg');
+    width: 1rem;
+    height: 1rem;
+    background-repeat: no-repeat;
+    transition: 0.2s linear;
+}
+
+.clicked > svg > g > circle{
+   fill: hsl(176, 72%, 28%);
+}
+
+.clicked > svg > g > path{
+    fill: white;
+}
+
+.main_page > .title > .clicked > .desk{
+    color: hsl(176, 72%, 28%);
+    font-weight: 700;
+}
+
+.main_page > .title > .bookmark > .backup:hover{
+    transition: 0.2s linear;
+    background-color: hsl(176, 72%, 28%);
+}
+
+/*Input number without arrow*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+/*Bad entry value*/
+.modal > .choice > div > input[class='wrong']{
+    border: 0.01rem solid red;
+    animation-name: badentry;
+    animation-duration: 0.2s;
+}
+
+
+@keyframes badentry{
+    from{
+        transform:translateX(0rem);
+    }
+    33%{
+        transform:translateX(0.2rem);
+    }
+    66%{
+        transform:translateX(-0.2rem);
+    }
+    to{
+        transform:translateX(0rem);
+    }
+}
+/*Header and menu*/
+body > header{
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    background-image: linear-gradient(hsla(0, 0%, 0%, 0.8) 0%,hsla(0, 0%, 0%, 0.0));
+    padding: 2rem 1.5rem;
+}
+body > header > nav{
+    margin: 0;
+    display: block;
+    border-radius: 0.5rem;
+}
+
+body > header > nav > ul{
+    display: none;
+    list-style: none;
+}
+
+body > header > nav a{
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+input[type=checkbox]{
+    display: none;
+}
+
+body > header > nav input[type=checkbox]:checked ~ ul{
+    display: flex;
+    position: absolute;
+    margin-top: 2.2rem;
+    left: 1.5rem;
+    width: 87vw;
+    flex-flow: column wrap;
+    background-color: white;
+    border-radius: 0.5rem;
+}
+
+body > header > nav input[type=checkbox]:checked + label > div{
+    transition: 0.2s linear;
+    background-image: url('images/icon-close-menu.svg');
+}
+
+body > header > nav li{
+    padding: 1.54rem 1.5rem;
+    border: 0.01rem solid hsla(0, 0%, 48%, 0.5);
+}
+
+body > header > nav > ul > li:first-child{
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+
+body > header > nav > ul > li:last-child{
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
+
+/*Main*/
+body > main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10rem 1.5rem 4.5rem;
+}
+
+/*Introduction*/
+.main_page .title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-color: white;
+    border : 0.01rem solid hsla(0, 0%, 48%, 0.2);
+    border-radius: 0.5rem;
+
+    padding: 0rem 1.5rem 2.5rem;
+    text-align: center;
+}
+
+.title > img{
+    width: 3.5rem;
+    float: top;
+    margin-top: -1.75rem;
+    margin-bottom: 1.2rem;
+}
+
+.title > h2{
+    font-size: 1.25rem;
+    font-weight: 700;
+    padding: 0 1rem 1rem;
+}
+
+.title > p{
+    color: hsla(220, 15%, 55%, 0.9);
+    font-size: 0.85rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.title > .bookmark{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.title > .bookmark > p{
+    color: white;
+    font-weight: 500;
+    font-size: 1rem;
+    background-color: hsl(176, 50%, 47%);
+    padding: 1.1rem 2.8rem;
+    border-radius: 2rem;
+    cursor: pointer;
+}
+
+.title > .bookmark > .desk{
+    display: none;
+}
+
+/*Raised*/
+.advancement{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 1.5rem 0 1.5rem;
+    padding: 0.8rem 1.5rem 1rem;
+    border : 0.01rem solid hsla(0, 0%, 48%, 0.2);
+    border-radius: 0.5rem;
+    background-color: white;
+}
+
+.advancement > .data{
+    padding: 1.5rem 0;
+}
+
+.advancement > .data > h3{
+    font-size: 2rem;
+    padding-bottom: 0.5rem;
+}
+
+.advancement > .data > p{ 
+    font-size: 0.85Rem;
+    font-weight: 500;
+    color: hsla(0, 0%, 48%, 0.9);
+}
+
+.advancement > div:nth-of-type(2){
+    border-top : 0.01rem solid hsla(0, 0%, 48%, 0.3);
+    border-bottom : 0.01rem solid hsla(0, 0%, 48%, 0.3);
+}
+
+.advancement > .containeur{
+    width: 100%;
+    height: 0.7rem;
+    background-color: hsla(0, 0%, 48%, 0.1);
+    border-radius: 1rem;
+    margin: 0.8rem 0 1.5rem;
+}
+
+.percent{
+    background-color: hsl(176, 50%, 47%);
+    height: inherit;
+    border-radius: 1rem;
+}
+
+
+.modal_main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    padding: 2.5rem 1.5rem 1rem;
+    border : 0.01rem solid hsla(0, 0%, 48%, 0.2);
+    border-radius: 0.5rem;
+    background-color: white;
+}
+
+.modal_main > h4{
+    align-self: flex-start;
+    font-size: 1.13rem;
+    padding-bottom: 1.5rem;
+}
+
+.modal_main  p{
+    font-size: 0.87rem;
+    color: hsla(0, 0%, 48%, 0.9);
+    line-height: 1.5rem;
+    font-weight: 500;
+    padding-bottom: 1.5rem;
+}
+
+.choice{
+    width:fit-content;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem 1.5rem;
+    border : 0.01rem solid hsla(0, 0%, 48%, 0.4);
+    border-radius: 0.5rem;
+}
+
+.modal_main > .choice > h3{
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding-bottom: 0.5rem;
+}
+
+.modal_main > .choice > .minimum{
+    font-size: 0.85rem;
+    color: hsl(176, 50%, 47%);
+    font-weight: 500;
+    padding-bottom: 1.5rem;
+}
+
+.modal_main > .choice > div{
+    display: flex;
+    padding-bottom: 1.5rem;
+    align-items: center;
+}
+
+.modal_main > .choice > div > p{
+    font-size: 0.85rem;
+    color: hsla(0, 0%, 48%, 0.9);
+    line-height: 1.5rem;
+    font-weight: 500;
+    padding: 0 0 0 0.5rem;
+}
+
+.modal_main > .choice > div > h4{
+    font-size: 1.85rem;
+    color: black;
+    font-weight: 700;
+}
+
+.modal_main > .choice > .select{
+    color: white;
+    padding: 0.7rem 1.9rem;
+    background-color: hsl(176, 50%, 47%);
+    width: 9.5rem;
+    border-radius: 2rem;
+}
+
+.modal_main > .choice > .select:hover{
+    transition: 0.2s linear;
+    background-color: hsl(176, 72%, 28%);
+    transform: scale(0.98);
+}
+
+.modal_main > .choice > .out{
+    color: white;
+    padding: 0.7rem 1.9rem;
+    background-color: hsla(0, 0%, 48%, 0.9);
+    width: 9.5rem;
+    border-radius: 2rem;
+}
+
+#empty{
+    opacity: 0.5;
+}
+
+/*Modal choice first page*/
+.modal{
+    z-index: 10000;
+    width: 21rem;
+
+    position: absolute;
+    top : 7.5rem;
+
+    background-color: white;
+    padding: 2rem 1.5rem;
+    border-radius: 0.5rem;
+    
+}
+
+.modal .start{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1.5rem;
+}
+
+.modal > .start > h4{
+    font-size: 1.15rem;
+    color: black;
+    font-weight: 700;
+}
+
+.modal > .start > img{
+    width: 1rem;
+    height: 1rem;
+    cursor: pointer;
+}
+
+.modal > p{
+    font-size: 0.88rem;
+    color: hsla(0, 0%, 48%, 0.8);
+    line-height: 1.5rem;
+    font-weight: 500;
+    padding-bottom: 1.5rem;
+}
+
+.modal > .choice{
+    display: grid;
+    grid-template-columns: 2.5rem auto;
+    grid-template-rows: auto auto auto auto;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem 1.4rem 0.5rem;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.modal > div:nth-of-type(2){
+    padding: 2rem 1.4rem 0.5rem;
+}
+
+.modal > div:nth-of-type(2) > h3{
+    margin-top: 0.2rem;
+}
+
+.modal > .choice > input[type="radio"] {
+    display: none;
+}
+
+.modal > .choice > input[type="radio"] + label{
+    grid-row: 1/3;
+    grid-column: 1/2;
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: 50%;
+    border: 0.01rem solid hsla(0, 0%, 48%, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.modal > .choice > input[type="radio"]:checked + label > .rond{
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 50%;
+    background-color: hsl(176, 50%, 47%);
+}
+
+.modal > .choice > h3{
+    font-size: 0.88rem;
+    color: black;
+    font-weight: 700;
+}
+
+.modal > .choice > .minimum{
+    color: hsl(176, 50%, 47%);
+    font-size: 0.88rem;
+    font-weight: 500;
+    padding-top: 0.5rem;
+}
+
+.modal > .choice > .prez{
+    grid-row: 3/4;
+    grid-column: 1/3;
+    padding: 2rem 0 1.5rem;
+    font-size: 0.88rem;
+    color: hsla(0, 0%, 48%, 0.9);
+    line-height: 1.5rem;
+    font-weight: 500;
+}
+
+.modal > .choice > .left{
+    grid-row: 4/5;
+    grid-column: 1/3;
+    color: hsla(0, 0%, 48%, 0.9);
+    font-weight: 500;
+    padding-bottom: 1rem;
+}
+
+.modal > .choice > .left > span{
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: hsla(0, 0%, 0%, 0.8);
+    padding-right: 0.3rem;
+}
+
+/*Selected section*/
+.modal > .choice > div{
+    grid-column: 1/3;
+    border-top: 0.01rem solid hsla(0, 0%, 48%, 0.4);
+    width: 120%;
+    margin-left: -1.5rem;
+    margin-top: 1rem;
+    padding: 2rem 1.5rem 1rem;
+    text-align: center;
+}
+
+.modal > .choice > div > p{
+    font-size: 0.88rem;
+    color: hsla(0, 0%, 48%, 0.9);
+    font-weight: 500;
+    padding-bottom: 1.2rem;
+}
+
+.modal > .choice input[type=number]{
+    border: 0.01rem solid hsl(176, 50%, 47%);
+    border-radius: 1.5rem;
+
+    width: 6rem;
+    height: 3rem;
+    margin-right: 0.9rem;
+
+    text-align: center;
+    color:hsla(0, 0%, 0%, 0.8);
+    font-weight: 700;
+    font-size: 0.88rem;
+    font-family: 'Commissioner', sans-serif;
+}
+
+.modal > .choice > div > label{
+    color:hsla(0, 0%, 48%, 0.5);
+    font-weight: 700;
+    font-size: 0.88rem;
+    position: absolute;
+    transform: translate(-5.7rem, 0.9rem);
+
+}
+
+.modal > .choice > div > input[type=button]{
+    border: 0.01rem solid hsl(176, 50%, 47%);
+    background-color: hsl(176, 50%, 47%);
+    border-radius: 1.5rem;
+
+    width: 7rem;
+    height: 3rem;
+    cursor: pointer;
+    color:white;
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+/*Thanks you section*/
+.completed{
+    z-index: 10000;
+    width: 21rem;
+
+    position: absolute;
+    top : 9rem;
+
+    background-color: white;
+    padding: 2rem 1.5rem 2.5rem;
+    border-radius: 0.5rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.completed > img{
+    padding-bottom: 1.5rem;
+}
+
+.completed > h4{
+    font-size: 1.15rem;
+    font-weight: 700;
+    padding-bottom: 1.5rem;
+}
+
+.completed > p{
+    font-size: 0.88rem;
+    color: hsla(0, 0%, 48%, 0.9);
+    font-weight: 500;
+    text-align: center;
+    line-height: 1.5rem;
+    padding-bottom: 1.8rem;
+}
+
+.completed > .agreement{
+    color: whitesmoke;
+    font-weight: 700;
+    background-color: hsl(176, 50%, 47%);
+    padding: 0.7rem 2.1rem;
+    border-radius: 2rem;
+    cursor: pointer;
+}
+
+.completed > .agreement:hover{
+    transition: 0.2s linear;
+    transform: scale(0.97);
+}
+
